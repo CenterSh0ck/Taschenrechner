@@ -12,15 +12,28 @@
         Console.WriteLine("********************************");
         string zahl2 = Console.ReadLine();
 
-        // Konvertierung von Text in Ganzzahlen
-        int ersteZahl = Convert.ToInt32(zahl1);
-        int zweiteZahl = Convert.ToInt32(zahl2);
+        // Konvertierung von Text in Ganzzahlen und GLeitkommazahlen
+        double ersterSummand = Convert.ToDouble(zahl1);
+        double zweiterSummand = Convert.ToDouble(zahl2);
 
         // Berechnung ausführen
-        int summe = ersteZahl + zweiteZahl;
+        double summe = Addiere(ersterSummand, zweiterSummand);
         Console.WriteLine("********************************");
         Console.WriteLine("Die Summe ist: {0}", summe);
-        Console.ReadKey(true);
+        WarteAufBenutzerEingabe();
+    }
+        // Berechnungen als eigene Methoden
+    static double Addiere(double ersterSummand, double zweiterSummand)
+    {
+        double summe = ersterSummand + zweiterSummand;
+        return summe;
+    }
+
+
+    static void WarteAufBenutzerEingabe()
+    {
+        Console.WriteLine("Zum beenden bitte Return drücken.");
+        Console.ReadLine();
     }
  }
 
