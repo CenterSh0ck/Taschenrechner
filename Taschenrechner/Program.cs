@@ -5,35 +5,78 @@
         // Als Benutzer möchte ich zwei Zahlen eingeben,
         // um deren Summe berechnen zu lassen. 
         // Eingabe und Ausgabe
-        Console.WriteLine("Bitte ersten Summanden eingeben:");
+        string zahl1 = HoleBenutzereingabe("Bitte gib die erste Zahl ein: ");
         Console.WriteLine("********************************");
-        string zahl1 = Console.ReadLine();
-        Console.WriteLine("Bitte zweiten Summanden eingeben:");
+        string zahl2 = HoleBenutzereingabe("Bitte gib die zweite Zahl ein: ");
         Console.WriteLine("********************************");
-        string zahl2 = Console.ReadLine();
+        string operation = HoleBenutzereingabe("Bitte gib die auszuführende Operation ein (+ oder -): ");
+        Console.WriteLine("*******************************************************");
 
         // Konvertierung von Text in Ganzzahlen und GLeitkommazahlen
-        double ersterSummand = Convert.ToDouble(zahl1);
-        double zweiterSummand = Convert.ToDouble(zahl2);
+        // TODO: Auslagern in Methode, wenn Struktur umfangreicher geworden ist.
+        double ersteZahl = Convert.ToDouble(zahl1);
+        double zweiteZahl = Convert.ToDouble(zahl2);
 
         // Berechnung ausführen
-        double summe = Addiere(ersterSummand, zweiterSummand);
-        Console.WriteLine("********************************");
-        Console.WriteLine("Die Summe ist: {0}", summe);
-        WarteAufBenutzerEingabe();
+        double resultat = 0;
+        if (operation == "+" )
+        {
+            resultat = Addiere(ersteZahl, zweiteZahl);
+            Console.WriteLine("Die Summe ist: {0}", resultat);
+        }
+        else if (operation == "-")
+        {
+            resultat = Subtrahiere(ersteZahl, zweiteZahl);
+            Console.WriteLine("Das Differenz ist: {0}", resultat);
+        }
+        else
+        {
+            Console.WriteLine("Keine Gültige Operation!!!");
+        }
+
+        HoleBenutzereingabe("Zum beenden bitte Return drücken.");
     }
-        // Berechnungen als eigene Methoden
+
+        // Methode zur Ausgabe des eingegebenen Strings als Zahl
+    static string HoleBenutzereingabe(string ausgabeText)
+    {
+        Console.Write(ausgabeText);
+        string zahl1 = Console.ReadLine();
+
+        return zahl1; 
+    }
+
+        // Berechnungen als eigene Methode(Addition)
     static double Addiere(double ersterSummand, double zweiterSummand)
     {
         double summe = ersterSummand + zweiterSummand;
+        
         return summe;
+
     }
 
-
-    static void WarteAufBenutzerEingabe()
+        // Berechnung als eigene Methode(Subtraktion)
+    static double Subtrahiere(double minuend, double subtrahent)
     {
-        Console.WriteLine("Zum beenden bitte Return drücken.");
-        Console.ReadLine();
+        double differenz =  minuend - subtrahent;
+        
+        return differenz;
+    }
+
+        // Berechnung als eigene Methode(Multiplikation)
+    static double Multipliziere(double produkt, double produkt2)
+    {
+        double produktfaktor = produkt * produkt2;
+
+        return produktfaktor;
+    }
+
+    // Berechnung als eigene Methode(Division)
+    static double quotientenwert(double divident, double divisor)
+    {
+        double quotientenwert = divident / divisor;
+
+        return quotientenwert;
     }
  }
 
