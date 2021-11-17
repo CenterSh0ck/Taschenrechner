@@ -19,31 +19,28 @@
 
         // Berechnung ausführen
         double resultat = 0;
-        if (operation == "+" )
+        switch (operation)
         {
-            resultat = Addiere(ersteZahl, zweiteZahl);
-            Console.WriteLine("Die Summe ist: {0}", resultat);
+            case "+":
+                resultat = Addiere(ersteZahl, zweiteZahl);
+                Console.WriteLine("Die Summe ist: {0}", resultat);
+                break;
+            case "-":
+                resultat = Subtrahiere(ersteZahl, zweiteZahl);
+                Console.WriteLine("Die Differenz ist: {0}", resultat);
+                break;
+            case "*":
+                resultat = Multipliziere(ersteZahl, zweiteZahl);
+                Console.WriteLine("Der Produktfaktor ist: {0}", resultat);
+                break;
+            case "/":
+                resultat = quotientenwert(ersteZahl, zweiteZahl);
+                Console.WriteLine("Der Quotientwert ist: {0}", resultat);
+                break;
+            default:
+                Console.WriteLine("Keine Gültige Operation!!!");
+                break;
         }
-        else if (operation == "-")
-        {
-            resultat = Subtrahiere(ersteZahl, zweiteZahl);
-            Console.WriteLine("Die Differenz ist: {0}", resultat);
-        }
-        else if (operation == "*")
-        {
-            resultat = Multipliziere(ersteZahl, zweiteZahl);
-            Console.WriteLine("Der Produktfaktor ist: {0}", resultat);
-        }
-        else if (operation == "/")
-        {
-            resultat = quotientenwert(ersteZahl, zweiteZahl);
-            Console.WriteLine("Der Quotientwert ist: {0}", resultat);
-        }
-        else
-        {
-            Console.WriteLine("Keine Gültige Operation!!!");
-        }
-
         HoleBenutzereingabe("Zum beenden bitte Return drücken.");
     }
 
