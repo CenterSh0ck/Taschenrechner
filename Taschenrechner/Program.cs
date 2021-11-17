@@ -9,7 +9,7 @@
         Console.WriteLine("********************************");
         string zahl2 = HoleBenutzereingabe("Bitte gib die zweite Zahl ein: ");
         Console.WriteLine("********************************");
-        string operation = HoleBenutzereingabe("Bitte gib die auszuführende Operation ein (+ oder -): ");
+        string operation = HoleBenutzereingabe("Bitte gib die auszuführende Operation ein (+,*,/ oder -): ");
         Console.WriteLine("*******************************************************");
 
         // Konvertierung von Text in Ganzzahlen und GLeitkommazahlen
@@ -27,7 +27,17 @@
         else if (operation == "-")
         {
             resultat = Subtrahiere(ersteZahl, zweiteZahl);
-            Console.WriteLine("Das Differenz ist: {0}", resultat);
+            Console.WriteLine("Die Differenz ist: {0}", resultat);
+        }
+        else if (operation == "*")
+        {
+            resultat = Multipliziere(ersteZahl, zweiteZahl);
+            Console.WriteLine("Der Produktfaktor ist: {0}", resultat);
+        }
+        else if (operation == "/")
+        {
+            resultat = quotientenwert(ersteZahl, zweiteZahl);
+            Console.WriteLine("Der Quotientwert ist: {0}", resultat);
         }
         else
         {
